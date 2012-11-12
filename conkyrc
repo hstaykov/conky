@@ -1,0 +1,206 @@
+Screen Res
+1280x1024x24
+######################
+ 
+####
+## Use XFT? Required to Force UTF8 (see below).
+#
+use_xft yes
+xftfont LiberationSans:size=9
+xftalpha 0.1
+text_buffer_size 2048
+ 
+####
+## Force UTF8? Requires XFT (see above).
+## Displays degree symbol, instead of Â°, etc.
+#
+override_utf8_locale yes
+ 
+####
+## Update interval in seconds.
+#
+update_interval 1.0
+ 
+####
+## This is the number of times Conky will update before quitting.
+## Set to zero to run forever.
+#
+total_run_times 0
+ 
+####
+## Create own window instead of using desktop (required in nautilus)?
+#
+own_window yes
+own_window_type override
+own_window_transparent yes
+ 
+####
+## Use double buffering? Reduces flicker.
+#
+double_buffer yes
+ 
+####
+## Draw shades?
+#
+draw_shades no
+ 
+####
+## Draw outlines?
+#
+draw_outline no
+ 
+####
+## Draw borders around text?
+#
+draw_borders no
+ 
+####
+## Draw borders around graphs?
+#
+draw_graph_borders no
+ 
+####
+## Print text to stdout?
+## Print text in console?
+#
+out_to_console no
+out_to_ncurses no
+ 
+####
+## Text alignment.
+#
+alignment top_right
+ 
+####
+## Minimum size of text area.
+#
+minimum_size 235 0
+ 
+####
+## Specify width and height for bars.
+#
+default_bar_size 0 4
+ 
+####
+## Gap between text and screen borders.
+#
+gap_x 18
+gap_y 28
+ 
+####
+## Shorten MiB/GiB to M/G in stats.
+#
+short_units yes
+ 
+####
+## Pad % symbol spacing after numbers.
+#
+pad_percents 0
+ 
+####
+## Limit the length of names in "Top Processes".
+#
+top_name_width 10
+ 
+####
+## Subtract file system buffers from used memory?
+#
+no_buffers no
+ 
+####
+## Set to yes, if you want all text to be in UPPERCASE.
+#
+uppercase no
+ 
+####
+## Number of cpu samples to average.
+## Set to 1 to disable averaging.
+#
+cpu_avg_samples 2
+ 
+####
+## Number of net samples to average.
+## Set to 1 to disable averaging.
+#
+net_avg_samples 2
+ 
+####
+## Add spaces to keep things from moving around?
+## Only affects certain objects.
+#
+use_spacer right
+ 
+####
+## My colors.
+#
+color0 White
+color1 Ivory
+color2 Ivory2
+color3 Ivory3
+color4 Tan1
+color5 Tan2
+color6 Gray
+color7 AntiqueWhite4
+color8 DarkSlateGray
+color9 Black
+ 
+TEXT
+ 
+##################
+## LOGO ##
+##################
+#${voffset 0}${font OpenLogos:size=20}${color2}Riceto Conky#${voffset 0}${goto 178}${font UbuntuTitleBold:size=20}${color4}10.10
+##################
+## SYSTEM ##
+##################
+${voffset 10}${font Arial:bold:size=10}${color4}SYSTEM ${color8} ${hr 2}
+${voffset 4}${font OpenLogos:size=10}${color2}${voffset -4}${font}${color6} ${sysname} ${kernel} ${alignr} ${machine}
+${voffset 2}${font StyleBats:size=10}${color2}${voffset -1}${font}${color6} AMD Athlon(tm) 64 X2 5200+ ${alignr}${freq_g cpu0} GHz
+${voffset 2}${font StyleBats:size=10}${color2}${voffset -1}${font}${color6} Uptime ${alignr}${uptime}
+${voffset 2}${font StyleBats:size=10}${color2}${voffset -1}${font}${color6} File System ${alignr}${fs_type}
+##################
+## PROCESSORS ##
+##################
+${voffset 5}${font Arial:bold:size=10}${color4}PROCESSORS ${color8}${hr 2}
+${voffset 2}${font StyleBats:size=10}${color2}${voffset -2}${font}${color6} CPU1 ${cpu cpu1}%${color7}${alignc 35}${cpubar cpu1}
+${voffset 2}${font StyleBats:size=10}${color2}${voffset -2}${font}${color6} CPU2 ${cpu cpu2}%${color7}${alignc 35}${cpubar cpu2}
+##################
+## MEMORY ##
+##################
+${voffset 3}${font Arial:bold:size=10}${color4}MEMORY ${color8}${hr 2}
+${voffset 2}${font StyleBats:size=10}${color2}${voffset -2}${font}${color6} RAM ${goto 95}${mem}/ ${memmax}${alignr}${memperc}%
+${color7}${membar}
+${voffset 2}${font StyleBats:size=10}${color2}${voffset -2}${font}${color6} SWAP ${goto 95}${swap} / ${swapmax}${alignr}${swapperc}%
+${color7}${swapbar}
+##################
+## HDD ##
+##################
+${voffset 3}${font Arial:bold:size=10}${color4}HDD ${color8}${hr 2}
+${voffset 2}${font StyleBats:size=10}${color2}${voffset -2}${font}${color6} ROOT ${goto 95}${fs_used /} / ${fs_size /}${alignr}${fs_free_perc /}%
+${color7}${fs_bar /}
+${voffset 2}${font StyleBats:size=10}${color2}${voffset -2}${font}${color6} HOME ${goto 95}${fs_used /home}/ ${fs_size /home}${alignr}${fs_free_perc /home}%
+${color7}${fs_bar /home}
+${voffset 2}${font PizzaDude Bullets:size=10}${color2}${font}${color6} Drive I/O: $color${diskio /dev/sda}
+##################
+ 
+TOP PROCESSES ##
+sed -e 's/[^[:digit:]\|.]//g'}
+${voffset 2}${font PizzaDude Bullets:size=10}${color2}${font}${color6} Down${alignr}${downspeed eth0}
+${voffset 2}${font PizzaDude Bullets:size=10}${color2}${font}${color6} Up${alignr}${upspeed eth0}
+${voffset 2}${font PizzaDude Bullets:size=10}${color2}${font}${color6} Downloaded${alignr}${totaldown eth0}
+${voffset 2}${font PizzaDude Bullets:size=10}${color2}${font}${color6} Uploaded${alignr}${totalup eth0}
+#####################
+## MY PERSONAL STUFF ##
+#######################
+#CPU Temperature
+${voffset 5}${font Arial:bold:size=10}${color4}TEMPERATURE${color8}${hr 2}
+${voffset 2}${font PizzaDude Bullets:size=10}${color2}${font}${color6} Core Temp: ${execi 8 sensors | grep -A 1 'Core0 Temp' | cut -c14-21 | sed '/^$/d'}
+#Deadbeef now playing
+${voffset 5}${font Arial:bold:size=10}${color4}DEADBEEF PLAYING${color8}${hr 2}
+${voffset 2}${font PizzaDude Bullets:size=10}${color2}${font}${color6}${voffset 7}${goto 0}${font Droid Sans:size=9:bold}${execi 2 deadbeef —nowplaying "%t"}$font
+${voffset 2}${font PizzaDude Bullets:size=10}${color2}${font}${color6}${goto 0}${execi 2 deadbeef —nowplaying "%a"}
+${goto 0}${execi 2 deadbeef —nowplaying "%b"}
+${goto 0}${font Droid Sans:size=8:bold}${execi 2 deadbeef —nowplaying "%y"}$font
+${goto 0}${font Droid Sans:size=8}${execi 1 deadbeef —nowplaying "%e"}${offset 2}/${offset 2}${execi 1 deadbeef —nowplaying "%l"}$font
+#${texeci 20 ~/.config/conky/db-cover.sh}${image ~/.config/conky/conkyCover.png}
+
